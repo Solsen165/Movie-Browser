@@ -27,13 +27,16 @@ Main Page
 
 ![main page](https://github.com/Solsen165/Movie-Browser/assets/77578191/45361fe8-418d-4c35-8a75-b291b2631f19)
 
+
 Movie Panel
 
 ![movie info](https://github.com/Solsen165/Movie-Browser/assets/77578191/9232a619-61bd-4473-8a26-be149f277799)
 
+
 TV Show Panel After Arranging Files Into Season Format
 
 ![show info](https://github.com/Solsen165/Movie-Browser/assets/77578191/4f58d243-1569-4659-8a7e-fbdeb927041d)
+
 
 You can multi-select shows to save time
 
