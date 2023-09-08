@@ -25,20 +25,20 @@ Program for organizing your movie and tv show library
 ## Images
 Main Page
 
-![main page](https://github.com/Solsen165/Movie-Browser/assets/77578191/5ad59dec-80eb-4d61-b46f-baa7018e7372)
+![main page](https://github.com/Solsen165/Movie-Browser/assets/77578191/45361fe8-418d-4c35-8a75-b291b2631f19)
 
 Movie Panel
 
-![movie info](https://github.com/Solsen165/Movie-Browser/assets/77578191/616cbc89-d711-4cad-bb10-b26aa6823867)
+![movie info](https://github.com/Solsen165/Movie-Browser/assets/77578191/9232a619-61bd-4473-8a26-be149f277799)
 
 TV Show Panel After Arranging Files Into Season Format
 
-![show info](https://github.com/Solsen165/Movie-Browser/assets/77578191/050c86b9-856e-4156-b1e1-eab334a72aa1)
+![show info](https://github.com/Solsen165/Movie-Browser/assets/77578191/4f58d243-1569-4659-8a7e-fbdeb927041d)
 
 You can multi-select shows to save time
 
-![multiselect](https://github.com/Solsen165/Movie-Browser/assets/77578191/f184262a-adda-445e-a6b8-d2447f8fd1a6)
+![multiselect](https://github.com/Solsen165/Movie-Browser/assets/77578191/322c36b9-d9fb-441d-9bbc-eb354e66fcda)
 
 Reidentifying Shows
 
-![reidentification](https://github.com/Solsen165/Movie-Browser/assets/77578191/9e4d531a-d2df-4ad6-95f7-68bc4ec5285f)
+![reidentification](https://github.com/Solsen165/Movie-Browser/assets/77578191/cdddc36d-017a-4f46-a7f7-1dcb225ad3bc)
