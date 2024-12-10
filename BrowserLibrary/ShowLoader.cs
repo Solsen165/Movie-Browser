@@ -395,7 +395,7 @@ namespace BrowserLibrary
             return poster;
         }
 
-        private static void SetEpisodeNumber(this EpisodeModel model)
+        public static void SetEpisodeNumber(this EpisodeModel model)
         {
             string[] segments = Path.GetFileName(model.FilePath).RemoveSpecialCharacters().Split(' ');
             int n = segments.Length;
@@ -1063,6 +1063,20 @@ namespace BrowserLibrary
             string url = $"https://www.imdb.com/find/?q={title.Replace(" ", "%20")}";
 
             throw new NotImplementedException();
+        }
+        public static async Task<List<string>> LookupShowAndGetTitle(string title)
+        {
+            string titleFromFile = IdentifyTitleFromFileName(title);
+
+            HtmlNode searchResult = await LookUpShow(title,1);
+            string id = IMDBIdFromLink(searchResult.GetAttributeValue("href", ""));
+            HtmlDocument htmlDocument = await DownloadShowPageAsync(id);
+            string titleFromPage = TitleFromPage(htmlDocument);
+
+            List<string> output = new List<string>();
+            output.Add(titleFromPage);
+            output.Add(titleFromFile);
+            return output;
         }
     }
 }
