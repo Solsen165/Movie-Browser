@@ -14,6 +14,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using static System.Net.WebRequestMethods;
 
 namespace BrowserLibrary
@@ -663,11 +664,11 @@ namespace BrowserLibrary
                 foreach (var episodeNode in episodeNodes)
                 {
                     string episodeLink = episodeNode.ChildNodes.First().GetAttributeValue("href", "");
-                    string innerHtml = episodeNode.ChildNodes.First().InnerHtml;
+                    string innerText = episodeNode.ChildNodes.First().InnerText;
 
                     EpisodeModel newEpisode = new EpisodeModel();
                     newEpisode.IMDBId = IMDBIdFromLink(episodeLink);
-                    newEpisode.Title = EpisodeTitleFromHtml(innerHtml);
+                    newEpisode.Title = EpisodeTitleFromHtml(innerText);
                     newEpisode.Description = EpisodeDescriptionFromHtml(episodeNode);
                     newEpisode.EpisodeNumber = episodeNo++;
                     newEpisode.SeasonNumber = seasonNo;
@@ -759,7 +760,7 @@ namespace BrowserLibrary
                 title.Append(episodeName[index]);
                 index++;
             }
-            return title.ToString().Replace("&#39;", "'").Replace("&#x27;", "'");
+            return HttpUtility.HtmlDecode(title.ToString());
         }
         private static string EpisodeDescriptionFromHtml(HtmlNode episodeNode)
         { 
@@ -768,13 +769,12 @@ namespace BrowserLibrary
             {
                 return null;
             }
-            return descriptionNode.InnerHtml.Replace("&#39;","'").Replace("&#x27;","'");
+            return HttpUtility.HtmlDecode(descriptionNode.InnerText);
         }
         private static bool IsTvShow(HtmlDocument htmlDocument)
         {
-            string episodeGuide = "";
             var tempNode = htmlDocument.DocumentNode.SelectSingleNode("//*[@id=\"__next\"]/main/div/section[1]/section/div[3]/section/section/div[1]/div/div[1]/a/span[1]");
-            if (tempNode == null || tempNode.InnerHtml != "Episode guide")
+            if (tempNode == null || tempNode.InnerText != "Episode guide")
             {
                 return false;
             }
@@ -862,15 +862,15 @@ namespace BrowserLibrary
         {
             string output = "";
             var node = htmlDocument.DocumentNode.SelectSingleNode("//h1[@data-testid='hero__pageTitle']");
-            output = node.ChildNodes[0].InnerHtml;
-            return output.Replace("&#39;", "'").Replace("&#x27;", "'");
+            output = node.ChildNodes[0].InnerText;
+            return HttpUtility.HtmlDecode(output);
         }
         private static string DescriptionFromPage(HtmlDocument htmlDocument)
         {
             string output = "";
             var node = htmlDocument.DocumentNode.SelectSingleNode("//p[@data-testid='plot']");
             output = node.ChildNodes.Last().InnerText;
-            return output.Replace("&#39;", "'").Replace("&#x27;", "'");
+            return HttpUtility.HtmlDecode(output);
         }
         private static string IMDBIdFromLink(string link)
         {

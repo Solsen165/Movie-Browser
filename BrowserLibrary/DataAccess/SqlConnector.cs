@@ -254,8 +254,6 @@ namespace BrowserLibrary.DataAccess
                 cnn.Execute($"update Episodes set Watched = {watched} where ParentShowId = {parent.Id} and SeasonNumber in ({sb})");
             }
         }
-
-
         public static void DeleteEverything()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))

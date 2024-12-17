@@ -15,6 +15,7 @@ namespace Browser.UnitTests
             hch.UseProxy = false;
             GlobalConfig.httpClient = new HttpClient(hch);
         }
+
         [TestMethod]
         [DataRow("House - [4x01] - Alone",4,1)]
         [DataRow("The.Office.US.S02E05.EXTENDED.1080p.WEBRip.x265-RARBG",2,5)]
